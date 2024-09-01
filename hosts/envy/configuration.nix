@@ -116,6 +116,7 @@
     unzip
     just
     lm_sensors
+    pinentry-all
   ];
   
 
@@ -123,6 +124,14 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  
+  # https://discourse.nixos.org/t/cant-get-gnupg-to-work-no-pinentry/15373/2
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+     enable = true;
+     #pinentryPackage = "pkgs.pinentry-gtk2";
+     enableSSHSupport = true;
+  }; 
   
   system.stateVersion = "24.05"; # Did you read the comment?
   

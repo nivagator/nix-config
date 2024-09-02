@@ -1,9 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs,  ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
     ];
 
   # boot loader
@@ -88,6 +89,14 @@
       xfce.thunar
       dolphin
     ];
+  };
+
+  home-manager = {
+    # also pass inputs to home-manager modules
+    extraSpecialArgs = {inherit inputs;};
+    users = {
+      "gavin" = import ./home.nix;
+    };
   };
 
   environment.systemPackages = with pkgs; [

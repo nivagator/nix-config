@@ -46,7 +46,13 @@
   programs.home-manager.enable = true;
 
   gtk.enable = true; 
-  gtk.theme.package = pkgs.arc-theme;
-  gtk.theme.name = "arc-theme";
+  gtk.theme.package = pkgs.gruvbox-dark-gtk;
+  gtk.theme.name = "gruvbox-dark-gtk";
+
+  gtk.iconTheme.package = pkgs.gruvbox-gtk-theme;
+  gtk.iconTheme.name = "gruvbox-gtk-theme";
+
+  gtk.cursorTheme.package = pkgs.bibata-cursors;
+  gtk.cursorTheme.name = "Bibata-Modern-Ice";
 
 }

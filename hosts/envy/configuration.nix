@@ -133,7 +133,9 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+ 
   # https://discourse.nixos.org/t/cant-get-gnupg-to-work-no-pinentry/15373/2
   services.pcscd.enable = true;
   programs.gnupg.agent = {

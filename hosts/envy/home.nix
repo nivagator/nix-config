@@ -44,4 +44,9 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  gtk.enable = true; 
+  gtk.theme.package = pkgs.arc-theme;
+  gtk.theme.name = "arc-theme";
+
 }
